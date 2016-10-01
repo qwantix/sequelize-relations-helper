@@ -9,7 +9,7 @@ class AssociationHelperPlugin {
 
   register( Model ) {
     if( Model.options.relations ) {
-      if( this.opts.debug ) {
+      if( this._opts.debug ) {
         console.log(`[AssociationHelperPlugin] Register new model "${Model.name}"`);
       }
       this._models.add( Model );
@@ -37,7 +37,7 @@ class AssociationHelperPlugin {
             case 'belongsTo':
             case 'hasMany':
             case 'belongsToMany':
-              if( this.opts.debug ) {
+              if( this._opts.debug ) {
                 console.log(`[AssociationHelperPlugin] Set "${modelSrc.name}" ${def.type} "${modelDst.name}"` , def._complete, opts );
               }
               def._complete = true;
